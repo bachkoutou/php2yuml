@@ -4,7 +4,16 @@ php2yuml
 A CLI PHP5 Script that generates yuml.me UML diagrams from your PHP5 Source Code.
 
 [Usage]
-php php2yuml.php -s <Folder> -o <file>
+php php2yuml.php -f <SourceDirectory> -o <file> [-s <size>] [-d <direction>]
+    -f, --from-directory : Source Directory
+    -o, --output    : Output File (a yuml image)
+    -s, --size      : A size, Default size :100;
+    -d, --direction : The Direction (Orientation) of the diagram, One
+                      From the following : 
+                        - LR (Left to Right)
+                        - TB (Top to Bottom)
+                        - RL (Right to Left)
+    -h, --help      : Displays the Help Message
 
 [Tutorials]
 http://php2yuml.berejeb.com
