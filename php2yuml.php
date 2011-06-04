@@ -37,16 +37,37 @@ foreach ($autoloadManager->parseFolders() as $class => $file) {
     $properties = $reflection->getProperties();
     if (count($properties)) { 
         $class .= '|';
-        foreach ($reflection->getProperties() as $property) {
+        foreach ($properties as $property) {
             if ($property->isPublic()) $class .= '+';
             if ($property->isPrivate()) $class .= '-';
             if ($property->isProtected()) $class .= '*';
             $class .= $property->getName() . ';';
         }
-        $class = rtrim($class, ';') . ']';
-    } else {
-        $class .= ']';
+        $class = rtrim($class, ';');
+    } 
+    // get methods
+    $methods = $reflection->getMethods();
+    if (count($methods)) {
+         $class .= '|';
+        foreach ($methods as $method) {
+            if ($method->isPublic()) $class .= '+';
+            if ($method->isPrivate()) $class .= '-';
+            if ($method->isProtected()) $class .= '*';
+            $class .= $method->getName() . ';';
+            // get parameters for dependencies
+            $parameters = $method->getParameters();
+            if (count($parameters)) {
+                foreach ($parameters as $parameter) {
+                    $paramClass =$parameter->getClass();
+                    if ($paramClass && $paramClass instanceof ReflectionClass && $paramClass->isUserDefined()) {
+                        $components[] = '[' . $class . ']uses -.->[' . $paramClass->name . ']';
+                    }
+                }
+            }
+        }
+        $class = rtrim($class, ';');
     }
+    $class .= ']';
 
     if ($parentClass = $reflection->getParentClass()) {
         $string = '[' . $parentClass->getName() . ']^-' . $class;

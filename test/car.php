@@ -55,4 +55,15 @@ class Car extends FourWheels implements Engine
     public function stop()
     {
     }
+
+    /**
+     * TODO: short description.
+     * 
+     * @param  Wheel  $wheel 
+     * @return TODO
+     */
+    public function addWheel(Wheel $wheel)
+    {
+        $this->wheels[] = $wheel;
+    }
 }
