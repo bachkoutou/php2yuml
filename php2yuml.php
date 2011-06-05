@@ -3,9 +3,9 @@ require_once(dirname(__FILE__) . '/autoloader.php');
 require_once(dirname(__FILE__) . '/CurlClient.php');
 $help = <<<PHP_EOL
 Usage : 
-php php2yuml.php -f <SourceDirectory> -o <file> [-s <size>] [-d <direction>]
+php php2yuml.php -f <SourceDirectory> [-o <file>] [-s <size>] [-d <direction>]
     -f, --from-directory : Source Directory
-    -o, --output    : Output File (a yuml image)
+    -o, --output    : Dump to an Output File (a yuml image)
     -s, --size      : A size, Default size :100;
     -d, --direction : The Direction (Orientation) of the diagram, One
                       From the following : 
@@ -42,10 +42,6 @@ for ($i= 1; $i < $_SERVER['argc'];$i++) {
         die($help);
         break;
     }
-}
-if (!$destinationFile) {
-    echo 'The -o Parameter is mandatory' . PHP_EOL;
-    die($help);
 }
 if (!$sourceFolder) {
     echo 'The -f Parameter is mandatory' . PHP_EOL;
@@ -113,5 +109,9 @@ $direction = !empty($direction) ? 'dir:' . $direction . ';' : '';
 $scale = !empty($scale) ? 'scale:' . $scale . ';' : '';
 $params = ';' . $direction . $scale;
 $client->setUrl('http://yuml.me/diagram/scruffy' . $params . '/class/' . rawurlencode($string));
-file_put_contents($destinationFile, $client->call());
-
+$content = $client->call();
+if (isset($destinationFile)) {
+    file_put_contents($destinationFile, $content);
+} else {
+    echo $content;
+}
