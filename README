@@ -1,12 +1,3 @@
-
-php2yuml
-
-[Description]
-A CLI PHP5 Script that generates yuml.me UML diagrams from your PHP5 Source Code.
-
-[Usage]
-[Tutorials]
-http://php2yuml.berejeb.com
                     ______________________________________________
   
                     php2yuml : PHP5 yuml.me UML Diagrams Generator
