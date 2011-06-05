@@ -49,101 +49,101 @@
       PHP5 yuml.me UML Class Diagram Generator
     </div>
 
-    <p>DESCRIPTION
-===========
-This Script Reverse engineer your PHP5 Code and generates yuml.me
-UML Class Diagrams (http://yuml.me/diagram/class/samples)
-
-Since It is a Command Line Script, it could be easily used in continuous
-integration tools to generate an automatic documentation.
-
-WHAT'S CURRENTLY SUPPORTED
-==========================
-UML:
-====
-- Classes
-- Interfaces
-- Property Visibily
-- Method Visibility
-- Generalization, Specification
-- Dependencies.
-YUML OPTIONS:
-=============
-- size
-- direction
-
-Get the script
-==============
-git clone git://github.com/bachkoutou/php2yuml.git
-
-
-How can I use it ?
-==================
-The usage of the script is pretty simple, it takes one mandatory parameter which
-is the source file directory, this is where your files are placed.
-
-For example, if your files are placed in the test folder, type :
-$ php php2yuml.php test
-
-Specify an output File
-======================
-By Default, the Script will output the Image directly (this could be useful to directly
-dump the image in a browser.). However, you can use the  -o (or the --output) Option to
- specify a destination file.
-$ php php2yuml.php -f test -o diagram.png
-
-Specify a diagram Size
-======================
-Use the -s (--size) to Specify a size:
-$ php php2yuml.php -f test -o diagram.png -s 120
-
-Specify a diagram direction
-===========================
-Use the -d (--direction) to Specify the direction of your diagram.
-Options are :
-    - LR: Left to Right
-    - TB: Top to Bottom
-    - RL: Right to Left
-
-$ php php2yuml.php -f test -o diagram.png -d BT
-
-Showing the Help
-================
-use the -h (--help) option to show the Help
-$ pgp php2yuml.php -h
-Shows :
-php php2yuml.php -f <SourceDirectory> [-o <file>] [-s <size>] [-d <direction>]
-    -f, --from-directory : Source Directory
-    -o, --output    : Dump in an output File (a yuml image)
-    -s, --size      : A size, Default size :100;
-    -d, --direction : The Direction (Orientation) of the diagram, One
-                      From the following :
-                        - LR (Left to Right)
-                        - TB (Top to Bottom)
-                        - RL (Right to Left)
-    -h, --help      : Displays the Help Message
+    <p>DESCRIPTION<br/>
+===========<br/>
+This Script Reverse engineer your PHP5 Code and generates yuml.me<br/>
+UML Class Diagrams (http://yuml.me/diagram/class/samples)<br/>
+<br/>
+Since It is a Command Line Script, it could be easily used in continuous<br/>
+integration tools to generate an automatic documentation.<br/>
+<br/>
+WHAT'S CURRENTLY SUPPORTED<br/>
+==========================<br/>
+UML:<br/>
+====<br/>
+- Classes<br/>
+- Interfaces<br/>
+- Property Visibily<br/>
+- Method Visibility<br/>
+- Generalization, Specification<br/>
+- Dependencies.<br/>
+YUML OPTIONS:<br/>
+=============<br/>
+- size<br/>
+- direction<br/>
+<br/>
+Get the script<br/>
+==============<br/>
+git clone git://github.com/bachkoutou/php2yuml.git<br/>
+<br/>
+<br/>
+How can I use it ?<br/>
+==================<br/>
+The usage of the script is pretty simple, it takes one mandatory parameter which<br/>
+is the source file directory, this is where your files are placed.<br/>
+<br/>
+For example, if your files are placed in the test folder, type :<br/>
+$ php php2yuml.php test<br/>
+<br/>
+Specify an output File<br/>
+======================<br/>
+By Default, the Script will output the Image directly (this could be useful to directly<br/>
+dump the image in a browser.). However, you can use the  -o (or the --output) Option to<br/>
+ specify a destination file.<br/>
+$ php php2yuml.php -f test -o diagram.png<br/>
+<br/>
+Specify a diagram Size<br/>
+======================<br/>
+Use the -s (--size) to Specify a size:<br/>
+$ php php2yuml.php -f test -o diagram.png -s 120<br/>
+<br/>
+Specify a diagram direction<br/>
+===========================<br/>
+Use the -d (--direction) to Specify the direction of your diagram.<br/>
+Options are :<br/>
+    - LR: Left to Right<br/>
+    - TB: Top to Bottom<br/>
+    - RL: Right to Left<br/>
+<br/>
+$ php php2yuml.php -f test -o diagram.png -d BT<br/>
+<br/>
+Showing the Help<br/>
+================<br/>
+use the -h (--help) option to show the Help<br/>
+$ pgp php2yuml.php -h<br/>
+Shows :<br/>
+php php2yuml.php -f <SourceDirectory> [-o <file>] [-s <size>] [-d <direction>]<br/>
+    -f, --from-directory : Source Directory<br/>
+    -o, --output    : Dump in an output File (a yuml image)<br/>
+    -s, --size      : A size, Default size :100;<br/>
+    -d, --direction : The Direction (Orientation) of the diagram, One<br/>
+                      From the following :<br/>
+                        - LR (Left to Right)<br/>
+                        - TB (Top to Bottom)<br/>
+                        - RL (Right to Left)<br/>
+    -h, --help      : Displays the Help Message<br/>
 </p><h2>Install</h2>
 <p>git clone git://github.com/bachkoutou/php2yuml.git</p>
 <h2>License</h2>
-<p>This Code is released under the GNU LGPL
-
-Please do not change the header of the file(s).
-
-This library is free software; you can redistribute it and/or modify it
-under the terms of the GNU Lesser General Public License as published
-by the Free Software Foundation; either version 2 of the License, or
-(at your option) any later version.
-
-This library is distributed in the hope that it will be useful, but
-WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
-or FITNESS FOR A PARTICULAR PURPOSE.
-
-See the GNU Lesser General Public License for more details.
+<p>This Code is released under the GNU LGPL<br/>
+<br/>
+Please do not change the header of the file(s).<br/>
+<br/>
+This library is free software; you can redistribute it and/or modify it<br/>
+under the terms of the GNU Lesser General Public License as published<br/>
+by the Free Software Foundation; either version 2 of the License, or<br/>
+(at your option) any later version.<br/>
+<br/>
+This library is distributed in the hope that it will be useful, but<br/>
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY<br/>
+or FITNESS FOR A PARTICULAR PURPOSE.<br/>
+<br/>
+See the GNU Lesser General Public License for more details.<br/>
 </p>
 <h2>Authors</h2>
-<p>Anis BEREJEB (anis.berejeb@gmail.com)<br/><br/>      </p>
+<p>Anis BEREJEB (anis.berejeb@gmail.com)<br/><br/><br/><br/>      </p>
 <h2>Contact</h2>
-<p> (anis.berejeb@gmail.com)<br/>      </p>
+<p> (anis.berejeb@gmail.com)<br/><br/>      </p>
 
 
     <h2>Download</h2>
