@@ -49,56 +49,47 @@
       PHP5 yuml.me UML Class Diagram Generator
     </div>
 
-    <p>DESCRIPTION<br/>
-===========<br/>
+    <h2>DESCRIPTION</h2>
 This Script Reverse engineer your PHP5 Code and generates yuml.me<br/>
 UML Class Diagrams (http://yuml.me/diagram/class/samples)<br/>
 <br/>
 Since It is a Command Line Script, it could be easily used in continuous<br/>
 integration tools to generate an automatic documentation.<br/>
 <br/>
-WHAT'S CURRENTLY SUPPORTED<br/>
-==========================<br/>
-UML:<br/>
-====<br/>
+<h2>WHAT'S CURRENTLY SUPPORTED</h2>
+<h3>UML:</h3>
 - Classes<br/>
 - Interfaces<br/>
 - Property Visibily<br/>
 - Method Visibility<br/>
 - Generalization, Specification<br/>
 - Dependencies.<br/>
-YUML OPTIONS:<br/>
-=============<br/>
+<h3>YUML OPTIONS:</h3>
 - size<br/>
 - direction<br/>
 <br/>
-Get the script<br/>
-==============<br/>
+<h3>Get the script</h3>
 git clone git://github.com/bachkoutou/php2yuml.git<br/>
 <br/>
 <br/>
-How can I use it ?<br/>
-==================<br/>
+<h3>How can I use it?</h3>
 The usage of the script is pretty simple, it takes one mandatory parameter which<br/>
 is the source file directory, this is where your files are placed.<br/>
 <br/>
 For example, if your files are placed in the test folder, type :<br/>
 $ php php2yuml.php test<br/>
 <br/>
-Specify an output File<br/>
-======================<br/>
+<h4>Specify an output File</h4>
 By Default, the Script will output the Image directly (this could be useful to directly<br/>
 dump the image in a browser.). However, you can use the  -o (or the --output) Option to<br/>
  specify a destination file.<br/>
 $ php php2yuml.php -f test -o diagram.png<br/>
 <br/>
-Specify a diagram Size<br/>
-======================<br/>
+<h4>Specify a diagram Size</h4>
 Use the -s (--size) to Specify a size:<br/>
 $ php php2yuml.php -f test -o diagram.png -s 120<br/>
 <br/>
-Specify a diagram direction<br/>
-===========================<br/>
+<h4>Specify a diagram direction</h4>
 Use the -d (--direction) to Specify the direction of your diagram.<br/>
 Options are :<br/>
     - LR: Left to Right<br/>
@@ -107,8 +98,7 @@ Options are :<br/>
 <br/>
 $ php php2yuml.php -f test -o diagram.png -d BT<br/>
 <br/>
-Showing the Help<br/>
-================<br/>
+<h4>Showing the Help</h4>
 use the -h (--help) option to show the Help<br/>
 $ pgp php2yuml.php -h<br/>
 Shows :<br/>
