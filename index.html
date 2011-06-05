@@ -77,23 +77,23 @@ The usage of the script is pretty simple, it takes one mandatory parameter which
 is the source file directory, this is where your files are placed.<br/>
 <br/>
 For example, if your files are placed in the test folder, type :<br/>
-<div class="footer">
+<pre>
 $ php php2yuml.php test<br/>
-</div>
+</pre>
 <br/>
 <h4>Specify an output File</h4>
 By Default, the Script will output the Image directly (this could be useful to directly<br/>
 dump the image in a browser.). However, you can use the  -o (or the --output) Option to<br/>
  specify a destination file.<br/>
-<div class="footer">
+<pre>
 $ php php2yuml.php -f test -o diagram.png<br/>
-</div>
+</pre>
 <br/>
 <h4>Specify a diagram Size</h4>
 Use the -s (--size) to Specify a size:<br/>
-<div class="footer">
+<pre>
 $ php php2yuml.php -f test -o diagram.png -s 120<br/>
-</div>
+</pre>
 <br/>
 <h4>Specify a diagram direction</h4>
 Use the -d (--direction) to Specify the direction of your diagram.<br/>
@@ -102,14 +102,15 @@ Options are :<br/>
     - TB: Top to Bottom<br/>
     - RL: Right to Left<br/>
 <br/>
-<div class="footer">
+<pre>
 $ php php2yuml.php -f test -o diagram.png -d BT<br/>
-</div>
+</pre>
 <br/>
 <h4>Showing the Help</h4>
 use the -h (--help) option to show the Help<br/>
-<div class="footer">
+<pre>
 $ pgp php2yuml.php -h<br/>
+</pre>
 Shows :<br/>
 php php2yuml.php -f <SourceDirectory> [-o file] [-s size] [-d direction]<br/>
     -f, --from-directory : Source Directory<br/>
@@ -121,7 +122,7 @@ php php2yuml.php -f <SourceDirectory> [-o file] [-s size] [-d direction]<br/>
                         - TB (Top to Bottom)<br/>
                         - RL (Right to Left)<br/>
     -h, --help      : Displays the Help Message<br/>
-</div>
+</pre>
 </p><h2>Install</h2>
 <p>git clone git://github.com/bachkoutou/php2yuml.git</p>
 <h2>License</h2>
