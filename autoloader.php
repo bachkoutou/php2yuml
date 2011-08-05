@@ -21,7 +21,7 @@
  * @version     2.0
  */
 
-
+namespace PHP2YUML;
 if (!defined('T_NAMESPACE'))
 {
     /**
@@ -140,7 +140,7 @@ class autoloadManager
         } 
         else
         {
-            throw new Exception('Failed to open dir : ' . $path);
+            throw new \Exception('Failed to open dir : ' . $path);
         }
     }
 
@@ -157,7 +157,7 @@ class autoloadManager
         } 
         else 
         {
-            throw new Exception('Failed to open dir : ' . $path);
+            throw new \Exception('Failed to open dir : ' . $path);
         }
     }
 
@@ -279,7 +279,7 @@ class autoloadManager
     private function parseFolder($folder)
     {
         $classes = array();
-        $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($folder));
+        $files = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($folder));
 
         foreach ($files as $file)
         {

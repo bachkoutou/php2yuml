@@ -73,19 +73,19 @@ The usage of the script is pretty simple, it takes one mandatory parameter which
 is the source file directory, this is where your files are placed.
 
 For example, if your files are placed in the test folder, type : 
-$ php php2yuml.php test
+$ php php2yuml test
 
 Specify an output File 
 ======================
 By Default, the Script will output the Image directly (this could be useful to directly
 dump the image in a browser.). However, you can use the  -o (or the --output) Option to
  specify a destination file.
-$ php php2yuml.php -f test -o diagram.png
+$ php php2yuml -f test -o diagram.png
 
 Specify a diagram Size
 ======================
 Use the -s (--size) to Specify a size:
-$ php php2yuml.php -f test -o diagram.png -s 120
+$ php php2yuml -f test -o diagram.png -s 120
 
 Specify a diagram direction
 ===========================
@@ -95,14 +95,20 @@ Options are :
     - TB: Top to Bottom
     - RL: Right to Left
 
-$ php php2yuml.php -f test -o diagram.png -d BT
+$ php php2yuml -f test -o diagram.png -d BT
+
+Specify an autoload Folder
+==========================
+You can use the --a / -- autoload option to add your dependencies. 
+
 
 Showing the Help
 ================
 use the -h (--help) option to show the Help
-$ pgp php2yuml.php -h
+$ pgp php2yuml -h
 Shows :
-php php2yuml.php -f <SourceDirectory> [-o <file>] [-s <size>] [-d <direction>]
+php php2yuml -a <autoloadDirectory> -f <SourceDirectory> [-o <file>] [-s <size>] [-d <direction>]
+    -a, --autoload  : Autoload Directory
     -f, --from-directory : Source Directory
     -o, --output    : Dump in an output File (a yuml image)
     -s, --size      : A size, Default size :100;

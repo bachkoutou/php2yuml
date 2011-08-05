@@ -1,6 +1,9 @@
+#!/usr/local/bin/php -qC
 <?php
+namespace PHP2YUML;
 require_once(dirname(__FILE__) . '/autoloader.php');
 require_once(dirname(__FILE__) . '/CurlClient.php');
+require_once(dirname(__FILE__) . '/Parser.php');
 $help = <<<PHP_EOL
 Usage : 
 php php2yuml.php -f <SourceDirectory> [-o <file>] [-s <size>] [-d <direction>]
@@ -37,6 +40,10 @@ for ($i= 1; $i < $_SERVER['argc'];$i++) {
             die($help);
         }
         break;
+    case '-a':    
+    case '--autoload':
+        $autoloadFolder = $_SERVER['argv'][$i+1];
+        break;
     case '-h':
     case '--help':
         die($help);
@@ -48,11 +55,15 @@ if (!$sourceFolder) {
         die($help);
 }
 $autoloadManager = new AutoloadManager();
-$autoloadManager->addFolder($sourceFolder);
+if (isset($autoloadFolder)) {
+    $autoloadManager->addFolder($autoloadFolder);
+}
 $autoloadManager->register();
 $components = array();
-foreach ($autoloadManager->parseFolders() as $class => $file) {
-    $reflection = new ReflectionClass($class);
+$parser = new Parser();
+
+foreach ($parser->getClassesFromFolder($sourceFolder) as $class => $file) {
+    $reflection = new \ReflectionClass($class);
     // class name
     //
     $class = '[' .$reflection->getName();
@@ -82,7 +93,7 @@ foreach ($autoloadManager->parseFolders() as $class => $file) {
             if (count($parameters)) {
                 foreach ($parameters as $parameter) {
                     $paramClass =$parameter->getClass();
-                    if ($paramClass && $paramClass instanceof ReflectionClass && $paramClass->isUserDefined()) {
+                    if ($paramClass && $paramClass instanceof \ReflectionClass && $paramClass->isUserDefined()) {
                         $components[] = '[' . $class . ']uses -.->[' . $paramClass->name . ']';
                     }
                 }
@@ -95,7 +106,9 @@ foreach ($autoloadManager->parseFolders() as $class => $file) {
     if ($parentClass = $reflection->getParentClass()) {
         $string = '[' . $parentClass->getName() . ']^-' . $class;
     }
-   $components[] = $string;
+    if (isset($string)) {
+        $components[] = $string;
+    }
     if ($interfaces = $reflection->getInterfaces()) {
         foreach ($interfaces as $name => $interface) {
             $components[] = '[<<' . $name . '>>]^-.-' .  $class;

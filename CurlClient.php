@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Note : Code is released under the GNU LGPL
  *
@@ -20,7 +21,7 @@
  * @author      Anis BEREJEB
  * 
  */
-
+namespace PHP2YUML;
 /**
  * Implements a curl client
  */
@@ -213,7 +214,7 @@ class CurlClient
     {
         if (!function_exists('curl_init'))
         {
-            throw new Exception('CURL is not installed in your environment');
+            throw new \Exception('CURL is not installed in your environment');
         }    
         $curl = curl_init();
         if (null !== $this->userAgent)
@@ -252,7 +253,7 @@ class CurlClient
         if (!empty($curl_error))
         {
             curl_close($curl);
-            throw new Exception($curl_error);
+            throw new \Exception($curl_error);
         }    
         curl_close($curl);
 
