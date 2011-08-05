@@ -7,6 +7,7 @@ require_once(dirname(__FILE__) . '/Parser.php');
 $help = <<<PHP_EOL
 Usage : 
 php php2yuml.php -f <SourceDirectory> [-o <file>] [-s <size>] [-d <direction>]
+    -a, --autoload  : Autoload Directory
     -f, --from-directory : Source Directory
     -o, --output    : Dump to an Output File (a yuml image)
     -s, --size      : A size, Default size :100;
